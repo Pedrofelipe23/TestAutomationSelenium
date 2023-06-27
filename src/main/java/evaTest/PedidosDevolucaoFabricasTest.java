@@ -2,15 +2,16 @@ package evaTest;
 
 import core.LoginPage;
 import core.PageComponents;
+import core.PageObject;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.rules.TestName;
 import org.openqa.selenium.By;
 
 public class PedidosDevolucaoFabricasTest {
-
 
     @BeforeEach
     public void beforeEach()  {
@@ -43,7 +44,6 @@ public class PedidosDevolucaoFabricasTest {
         PageComponents.escrever(By.xpath("//*[@id=\"table_filter\"]/label/input"),"20230626581180");
         PageComponents.clicarBotao(By.id("fcf83b4a-6890-4c6a-92e2-2baa44191388"));
         PageComponents.forceWait();
-        //inserir select
         PageComponents.selecionarCombo("selector1","Reprovado");
         PageComponents.clicarBotao(By.cssSelector("#modalAnalise > div > div > div.modal-footer > button.btn.btn-primary"));
 
