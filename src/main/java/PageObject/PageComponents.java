@@ -60,7 +60,7 @@ public class PageComponents extends PageObject{
 
     /********* Combo ************/
 
-    public void selecionarCombo(String id, String valor) {
+    public static void selecionarCombo(String id, String valor) {
         WebElement element = driver.findElement(By.id(id));
         Select combo = new Select(element);
         combo.selectByVisibleText(valor);
@@ -72,14 +72,14 @@ public class PageComponents extends PageObject{
         combo.deselectByVisibleText(valor);
     }
 
-    public String obterValorCombo(String id) {
+    public static String obterValorCombo(String id) {
         WebElement element = driver.findElement(By.id(id));
         Select combo = new Select(element);
         return combo.getFirstSelectedOption().getText();
     }
 
     public List<String> obterValoresCombo(String id) {
-        WebElement element = driver.findElement(By.id("elementosForm:esportes"));
+        WebElement element = driver.findElement(By.id(id));
         Select combo = new Select(element);
         List<WebElement> allSelectedOptions = combo.getAllSelectedOptions();
         List<String> valores = new ArrayList<String>();
@@ -96,7 +96,7 @@ public class PageComponents extends PageObject{
         return options.size();
     }
 
-    public boolean verificarOpcaoCombo(String id, String opcao){
+    public static boolean verificarOpcaoCombo(String id, String opcao){
         WebElement element = driver.findElement(By.id(id));
         Select combo = new Select(element);
         List<WebElement> options = combo.getOptions();
@@ -198,6 +198,14 @@ public class PageComponents extends PageObject{
     }
 
     /************** Espera AJAX *********************/
+
+    public static void forceWait(){
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            System.out.println("Erro para forçar espera " + e.getMessage());
+        }
+    }
 
     public void waitRequest(By by, String text){
         WebDriverWait wait = new WebDriverWait(driver,30);
