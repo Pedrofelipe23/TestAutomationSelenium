@@ -1,14 +1,12 @@
 package evaTest;
 
 import core.LoginPage;
-import core.PageComponents;
-import core.PageObject;
+import core.Components;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.rules.TestName;
 import org.openqa.selenium.By;
 
 public class PedidosDevolucaoFabricasTest {
@@ -22,48 +20,49 @@ public class PedidosDevolucaoFabricasTest {
 
     @AfterEach
     public void aftereEach() {
-        PageComponents.fechar();
+        Components.captureScreenshot("C:\\TestePedro\\TestAutomation\\target\\screenshot\\"+"PedidosDevolucaoFabricas");
+        Components.fechar();
     }
 
     @Test
     public void tentativaDeConfimarPedidoSemAprovarReprovar(){
-        PageComponents.forceWait();
-        PageComponents.escrever(By.xpath("//*[@id=\"table_filter\"]/label/input"),"20230626581180");
-        PageComponents.clicarBotao(By.id("fcf83b4a-6890-4c6a-92e2-2baa44191388"));
-        PageComponents.clicarBotao(By.cssSelector("#modalAnalise > div > div > div.modal-footer > button.btn.btn-primary"));
+        Components.forceWait();
+        Components.escrever(By.xpath("//*[@id=\"table_filter\"]/label/input"),"20230626581180");
+        Components.clicarBotao(By.id("fcf83b4a-6890-4c6a-92e2-2baa44191388"));
+        Components.clicarBotao(By.cssSelector("#modalAnalise > div > div > div.modal-footer > button.btn.btn-primary"));
 
-        Assert.assertTrue(PageComponents.isPage("http://localhost:8080/eva/devolucaoBlank/pedidosDevolucaoFabricas"));
-        Assert.assertTrue(PageComponents.contemTexto("Pedidos de Devolução"));
-        Assert.assertTrue(PageComponents.contemTexto("Análise do Pedido"));
-        Assert.assertTrue(PageComponents.contemTexto("Para salvar o pedido é necessário aprovar ou reprovar."));
+        Assert.assertTrue(Components.isPage("http://localhost:8080/eva/devolucaoBlank/pedidosDevolucaoFabricas"));
+        Assert.assertTrue(Components.contemTexto("Pedidos de Devolução"));
+        Assert.assertTrue(Components.contemTexto("Análise do Pedido"));
+        Assert.assertTrue(Components.contemTexto("Para salvar o pedido é necessário aprovar ou reprovar."));
     }
 
     @Test
     public void tentativaDeReprovarPedidoSemEscreverJustificativa(){
-        PageComponents.forceWait();
-        PageComponents.escrever(By.xpath("//*[@id=\"table_filter\"]/label/input"),"20230626581180");
-        PageComponents.clicarBotao(By.id("fcf83b4a-6890-4c6a-92e2-2baa44191388"));
-        PageComponents.forceWait();
-        PageComponents.selecionarCombo("selector1","Reprovado");
-        PageComponents.clicarBotao(By.cssSelector("#modalAnalise > div > div > div.modal-footer > button.btn.btn-primary"));
+        Components.forceWait();
+        Components.escrever(By.xpath("//*[@id=\"table_filter\"]/label/input"),"20230626581180");
+        Components.clicarBotao(By.id("fcf83b4a-6890-4c6a-92e2-2baa44191388"));
+        Components.forceWait();
+        Components.selecionarCombo("selector1","Reprovado");
+        Components.clicarBotao(By.cssSelector("#modalAnalise > div > div > div.modal-footer > button.btn.btn-primary"));
 
-        Assert.assertTrue(PageComponents.obterValorCombo("selector1").equals("Reprovado"));
-        Assert.assertTrue(PageComponents.contemTexto("Aprovar ou reprovar:"));
-        Assert.assertTrue(PageComponents.contemTexto("A justificativa é obrigatória para reprovar."));
+        Assert.assertTrue(Components.obterValorCombo("selector1").equals("Reprovado"));
+        Assert.assertTrue(Components.contemTexto("Aprovar ou reprovar:"));
+        Assert.assertTrue(Components.contemTexto("A justificativa é obrigatória para reprovar."));
     }
 
     @Ignore
     public void reprovandoPedidoDevolucao(){
-        PageComponents.forceWait();
-        PageComponents.escrever(By.xpath("//*[@id=\"table_filter\"]/label/input"),"20230626581501");
-        PageComponents.clicarBotao(By.id("eb68589c-b1e6-4abd-8683-611c98341ca8"));
+        Components.forceWait();
+        Components.escrever(By.xpath("//*[@id=\"table_filter\"]/label/input"),"20230626581501");
+        Components.clicarBotao(By.id("eb68589c-b1e6-4abd-8683-611c98341ca8"));
         //inserir select
-        PageComponents.selecionarCombo("selector1","2");
-        PageComponents.obterValorCombo("selector1").equals("Reprovado");
-        PageComponents.escrever(By.id("motivo"),"Reprovado teste Pedro");
-        PageComponents.clicarBotao(By.cssSelector("#modalAnalise > div > div > div.modal-footer > button.btn.btn-primary"));
+        Components.selecionarCombo("selector1","2");
+        Components.obterValorCombo("selector1").equals("Reprovado");
+        Components.escrever(By.id("motivo"),"Reprovado teste Pedro");
+        Components.clicarBotao(By.cssSelector("#modalAnalise > div > div > div.modal-footer > button.btn.btn-primary"));
 
-        Assert.assertTrue(PageComponents.verificarOpcaoCombo("selector1","Reprovado"));
+        Assert.assertTrue(Components.verificarOpcaoCombo("selector1","Reprovado"));
     }
 
     @Ignore

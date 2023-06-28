@@ -8,12 +8,11 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         PedidosDevolucaoFabricasTest.class
-
 })
 public class SuiteTeste {
 
     @AfterClass
     public static void finalizaTudo(){
-        PageObject.fechar();
+        DriverFactory.killDriver();
     }
 }

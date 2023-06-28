@@ -1,40 +1,23 @@
 package core;
 
-import org.apache.commons.io.FileUtils;
-import org.junit.After;
-import org.junit.Rule;
-import org.junit.rules.TestName;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PageComponents extends PageObject {
+public class Components extends PageObject {
 
-    public PageComponents(WebDriver driver) {
+    public Components(WebDriver driver) {
         super(driver);
     }
 
-    @Rule
-    public TestName testName = new TestName();
 
-    @After
-    public void screenshot()  {
-        TakesScreenshot print = (TakesScreenshot) driver;
-        File arquivo = print.getScreenshotAs(OutputType.FILE);
-        try {
-            FileUtils.copyFile(arquivo, new File("target" +File.separator+ "screenshot" +File.separator+ testName.getMethodName() +".jpg"));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        System.out.println("screenshot " + testName.getMethodName());
+    /********* Screenshot ************/
+    public static void captureScreenshot(String fileName) {
+        takeScreenshot(fileName);
     }
-
 
     /********* TextField e TextArea ************/
 
