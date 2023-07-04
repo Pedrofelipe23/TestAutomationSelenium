@@ -148,6 +148,10 @@ public class LoginPage extends PageObject {
         return new UploadArquivosECVPage(driver);
     }
 
+    public void efetuarLoginMudarLocalInstalacao() {
+        efetuaLogin();
+        driver.navigate().to("http://localhost:8080/eva/vistoria/mudarLocalInstalacao");
+    }
 
 
 //*************** Telas Projeto EvaDigital ***************
@@ -155,6 +159,7 @@ public class LoginPage extends PageObject {
         efetuaLogin();
         return new EmplacamentoDigitalPage(driver);
     }
+
 
 
 }
