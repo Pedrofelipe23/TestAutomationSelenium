@@ -6,19 +6,22 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.logging.LogEntries;
+import org.openqa.selenium.logging.LogEntry;
+import org.openqa.selenium.logging.LogType;
+
 import java.awt.*;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class PageObject {
 
-    private static final String LOG_FILE = "C:\\TestePedro\\TestAutomation\\target\\logs\\test.log";
+    //private static final String LOG_FILE = "C:\\TestePedro\\TestAutomation\\target\\logs\\test.log";
 
     protected static WebDriver driver;
 
@@ -75,7 +78,7 @@ public class PageObject {
         }
     }
 
-    public static void log(String mensagem) {
+    /*public static void log(String mensagem) {
         String timestamp = getTimestamp();
         String logMessage = timestamp + " - " + mensagem;
 
@@ -94,6 +97,29 @@ public class PageObject {
         Date currentDate = new Date();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return dateFormat.format(currentDate);
+    }*/
+
+    public static void saveBrowserLogs() {
+        // Obtenha os logs do navegador
+        LogEntries logs = driver.manage().logs().get(LogType.BROWSER);
+
+        // Crie um arquivo de log com base na data e hora atual
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmss");
+        String logFileName = "test_" + dateFormat.format(new Date()) + ".log";
+        String logFilePath = "C:\\TestePedro\\TestAutomation\\target\\logs\\" + logFileName;
+        File logFile = new File(logFilePath);
+        logFile.getParentFile().mkdirs(); // Cria os diretorios pai, se necessário
+
+        try (FileOutputStream fos = new FileOutputStream(logFile)) {
+            // Escreva as entradas de log no arquivo
+            for (LogEntry entry : logs) {
+                String logMessage = entry.getMessage();
+                fos.write(logMessage.getBytes());
+                fos.write(System.lineSeparator().getBytes());
+            }
+        } catch (IOException e) {
+            Logger.getLogger(PageObject.class.getName()).log(Level.SEVERE, "Erro ao gravar o arquivo de log", e);
+        }
     }
 
 }

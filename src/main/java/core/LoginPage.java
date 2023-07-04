@@ -1,6 +1,5 @@
 package core;
 
-import evaDigitalPage.EmplacamentoDigitalPage;
 import evaPage.*;
 import vivaPage.*;
 import org.openqa.selenium.By;
@@ -155,9 +154,9 @@ public class LoginPage extends PageObject {
 
 
 //*************** Telas Projeto EvaDigital ***************
-    public EmplacamentoDigitalPage efetuaLoginEmplacamentoDigital() {
+    public void efetuaLoginEmplacamentoDigital() {
         efetuaLogin();
-        return new EmplacamentoDigitalPage(driver);
+        driver.navigate().to("http://localhost:8080/eva/primeiroEmplacamentoDigital/emplacamentoDigital");
     }
 
 
