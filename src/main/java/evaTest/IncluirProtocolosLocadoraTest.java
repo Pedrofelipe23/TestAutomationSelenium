@@ -20,7 +20,7 @@ public class IncluirProtocolosLocadoraTest {
 
     @AfterEach
     public void aftereEach(){
-        this.incluirProtocolo.fechar();
+        this.incluirProtocolo.fecharDriver();
     }
 
     @Test

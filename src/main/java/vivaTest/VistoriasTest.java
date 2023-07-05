@@ -21,7 +21,7 @@ public class VistoriasTest {
 
     @AfterEach
     public void aftereEach(){
-        this.vistorias.fechar();
+        this.vistorias.fecharDriver();
     }
 
     @Test

@@ -21,7 +21,7 @@ public class ConciliacaoTest {
 
     @AfterEach
     public void aftereEach(){
-        this.conciliar.fechar();
+        this.conciliar.fecharDriver();
     }
 
     @Test

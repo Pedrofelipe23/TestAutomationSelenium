@@ -21,7 +21,7 @@ public class EstampagensFeitasNewTest {
 
     @AfterEach
     public void aftereEach(){
-        this.estampagensFeitas.fechar();
+        this.estampagensFeitas.fecharDriver();
     }
 
     @Test

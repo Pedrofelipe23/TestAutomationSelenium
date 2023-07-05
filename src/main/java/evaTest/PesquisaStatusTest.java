@@ -21,7 +21,7 @@ public class PesquisaStatusTest {
 
     @AfterEach
     public void aftereEach(){
-        this.pesquisaStatus.fechar();
+        this.pesquisaStatus.fecharDriver();
     }
 
     @Test

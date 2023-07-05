@@ -21,7 +21,7 @@ public class LinksECVsTeste {
 
     @AfterEach
     public void aftereEach(){
-        this.linksECV.fechar();
+        this.linksECV.fecharDriver();
     }
 
     @Test

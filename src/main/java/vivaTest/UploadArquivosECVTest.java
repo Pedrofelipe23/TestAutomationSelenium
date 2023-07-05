@@ -20,7 +20,7 @@ public class UploadArquivosECVTest {
 
     @AfterEach
     public void aftereEach(){
-        this.uploadArquivo.fechar();
+        this.uploadArquivo.fecharDriver();
     }
 
     @Test

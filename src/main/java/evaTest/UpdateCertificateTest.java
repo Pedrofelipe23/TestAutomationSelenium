@@ -22,7 +22,7 @@ public class UpdateCertificateTest {
 
     @AfterEach
     public void aftereEach(){
-        this.updateCertificate.fechar();
+        this.updateCertificate.fecharDriver();
     }
 
     @Test

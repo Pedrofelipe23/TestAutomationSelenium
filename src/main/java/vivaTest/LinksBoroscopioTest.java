@@ -21,7 +21,7 @@ public class LinksBoroscopioTest {
 
     @AfterEach
     public void aftereEach(){
-        this.boroscopio.fechar();
+        this.boroscopio.fecharDriver();
     }
 
     @Test

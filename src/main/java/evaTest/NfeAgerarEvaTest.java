@@ -21,7 +21,7 @@ public class NfeAgerarEvaTest {
 
     @AfterEach
     public void aftereEach(){
-        this.nfeAgerar.fechar();
+        this.nfeAgerar.fecharDriver();
     }
 
     @Test

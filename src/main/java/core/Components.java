@@ -4,8 +4,13 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import static core.TestRecordManagement.logInteraction;
+import static core.TestRecordManagement.takeScreenshot;
 
 public class Components extends PageObject {
 
@@ -28,12 +33,16 @@ public class Components extends PageObject {
     /********* TextField e TextArea ************/
 
     public static void escrever(By by, String texto){
-        driver.findElement(by).clear();
-        driver.findElement(by).sendKeys(texto);
-    }
+        try {
+            driver.findElement(by).clear();
+            driver.findElement(by).sendKeys(texto);
+            logInteraction("Texto digitado no campo com sucesso");
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("Erro ao escrever no campo de texto: " + e.getMessage());
+        }
 
-    public void escrever(String id_campo, String texto){
-        escrever(By.id(id_campo), texto);
+
     }
 
     public String obterValorCampo(String id_campo) {
@@ -120,7 +129,13 @@ public class Components extends PageObject {
     }
 
     public static void clicarBotao(By by) {
-        driver.findElement(by).click();
+        try {
+            driver.findElement(by).click();
+            logInteraction("Botão de pesquisa clicado com sucesso");
+        }catch (Exception e){
+            e.printStackTrace();
+            System.out.println("Erro ao clicar no button: " + e.getMessage());
+        }
     }
 
     public String obterValueElemento(String id) {

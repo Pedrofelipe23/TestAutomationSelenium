@@ -20,7 +20,7 @@ public class GerenciarModeloNFTeste {
 
     @AfterEach
     public void aftereEach(){
-        this.modeloNF.fechar();
+        this.modeloNF.fecharDriver();
     }
 
     //Teste de validações dos inputs.

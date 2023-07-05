@@ -22,7 +22,7 @@ public class AtualizarNomeCpfPrepostoTest {
 
     @AfterEach
     public void aftereEach(){
-        this.atualizarPreposto.fechar();
+        this.atualizarPreposto.fecharDriver();
     }
 
     @Test

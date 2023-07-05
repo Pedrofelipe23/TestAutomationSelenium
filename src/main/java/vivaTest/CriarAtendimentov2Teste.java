@@ -22,7 +22,7 @@ public class CriarAtendimentov2Teste {
 
     @AfterEach
     public void aftereEach(){
-        this.criarAtendimento.fechar();
+        this.criarAtendimento.fecharDriver();
     }
 
     @Ignore

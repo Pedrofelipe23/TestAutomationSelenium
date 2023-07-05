@@ -2,6 +2,7 @@ package evaDigitalTest;
 
 import core.Components;
 import core.LoginPage;
+import core.TestRecordManagement;
 import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,14 +16,14 @@ public class EmplacamentoDigitalTest {
         LoginPage paginaDeLogin = new LoginPage();
         paginaDeLogin.preencherFormularioDeLogin("Pedro.pereira","1234");
         paginaDeLogin.efetuaLoginEmplacamentoDigital();
-
+        TestRecordManagement.openLog();
     }
 
     @AfterEach
     public void aftereEach(){
         Components.captureScreenshot("C:\\TestePedro\\TestAutomation\\target\\screenshot\\"+"EmplacamentoDigital");
-        Components.saveBrowserLogs();
-        Components.fechar();
+        Components.fecharDriver();
+        TestRecordManagement.closeLog();
     }
 
     @Test
@@ -30,6 +31,7 @@ public class EmplacamentoDigitalTest {
         Components.escrever(By.id("chassi"),"9362CKFW98B020032");
         Assert.assertTrue(Components.contemTexto("O campo deve conter no máximo 15 caracteres"));
         Assert.assertTrue(Components.isPage("http://localhost:8080/eva/primeiroEmplacamentoDigital/emplacamentoDigital"));
+
     }
 
     @Test

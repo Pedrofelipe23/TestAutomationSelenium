@@ -20,7 +20,7 @@ public class EnviaVistoriaDetranTest {
 
     @AfterEach
     public void aftereEach(){
-        this.enviaVistoria.fechar();
+        this.enviaVistoria.fecharDriver();
     }
 
     @Test

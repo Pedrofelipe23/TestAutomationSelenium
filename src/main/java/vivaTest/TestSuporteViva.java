@@ -23,7 +23,7 @@ public class TestSuporteViva {
 
     @AfterEach
     public void aftereEach() {
-        this.suporte.fechar();
+        this.suporte.fecharDriver();
     }
 
 

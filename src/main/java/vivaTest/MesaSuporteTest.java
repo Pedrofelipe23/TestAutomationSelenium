@@ -20,7 +20,7 @@ public class MesaSuporteTest {
 
     @AfterEach
     public void aftereEach(){
-        this.mesaSuporte.fechar();
+        this.mesaSuporte.fecharDriver();
     }
 
     @Test

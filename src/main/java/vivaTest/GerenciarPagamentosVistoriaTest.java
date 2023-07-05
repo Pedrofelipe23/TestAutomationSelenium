@@ -21,7 +21,7 @@ public class GerenciarPagamentosVistoriaTest {
 
     @AfterEach
     public void aftereEach(){
-        this.pagamentos.fechar();
+        this.pagamentos.fecharDriver();
     }
 
     @Test

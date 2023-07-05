@@ -11,7 +11,7 @@ import java.io.File;
 import java.io.IOException;
 
 import static core.DriverFactory.getDriver;
-import static core.PageObject.fechar;
+import static core.PageObject.fecharDriver;
 
 public class BaseTest {
 
@@ -26,7 +26,7 @@ public class BaseTest {
         System.out.println("screenshot " + testName.getMethodName());
 
         if (Propriedades.FECHAR_BROWSER){
-            fechar();
+            fecharDriver();
         }
     }
 

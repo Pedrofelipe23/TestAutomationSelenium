@@ -21,7 +21,7 @@ public class PedidosDevolucaoFabricasTest {
     @AfterEach
     public void aftereEach() {
         Components.captureScreenshot("C:\\TestePedro\\TestAutomation\\target\\screenshot\\"+"PedidosDevolucaoFabricas");
-        Components.fechar();
+        Components.fecharDriver();
     }
 
     @Test

@@ -21,7 +21,7 @@ public class EnviarAutorizacaoDetranMultTest {
 
     @AfterEach
     public void aftereEach() {
-        this.enviarAutDetran.fechar();
+        this.enviarAutDetran.fecharDriver();
     }
 
     @Test

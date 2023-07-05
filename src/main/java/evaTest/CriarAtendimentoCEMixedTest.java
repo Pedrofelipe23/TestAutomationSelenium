@@ -20,7 +20,7 @@ public class CriarAtendimentoCEMixedTest {
 
     @AfterEach
     public void aftereEach(){
-        this.criarAtendimento.fechar();
+        this.criarAtendimento.fecharDriver();
     }
 
     @Ignore
