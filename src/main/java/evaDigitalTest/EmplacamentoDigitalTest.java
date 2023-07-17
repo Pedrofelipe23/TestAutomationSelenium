@@ -16,22 +16,19 @@ public class EmplacamentoDigitalTest {
         LoginPage paginaDeLogin = new LoginPage();
         paginaDeLogin.preencherFormularioDeLogin("Pedro.pereira","1234");
         paginaDeLogin.efetuaLoginEmplacamentoDigital();
-        TestRecordManagement.openLog();
     }
 
     @AfterEach
     public void aftereEach(){
         Components.captureScreenshot("C:\\TestePedro\\TestAutomation\\target\\screenshot\\"+"EmplacamentoDigital");
         Components.fecharDriver();
-        TestRecordManagement.closeLog();
     }
 
     @Test
     public void consultandoChassiInvalido(){
-        Components.escrever(By.id("chassi"),"9362CKFW98B020032");
+        Components.escrever(By.id("chassi"),"9362CKFW98B02003255");
         Assert.assertTrue(Components.contemTexto("O campo deve conter no máximo 15 caracteres"));
         Assert.assertTrue(Components.isPage("http://localhost:8080/eva/primeiroEmplacamentoDigital/emplacamentoDigital"));
-
     }
 
     @Test
@@ -50,7 +47,13 @@ public class EmplacamentoDigitalTest {
     public void consultandoCPFVazio(){
         Components.escrever(By.id("cpf")," ");
         Assert.assertTrue(Components.contemTexto("CPF é obrigatório"));
+    }
 
+    @Test
+    public void consultandoSemPreencherDados(){
+        Components.clicarBotao(By.id("btn-search"));
+        Assert.assertTrue(Components.contemTexto("Chassi é obrigatório"));
+        Assert.assertTrue(Components.contemTexto("CPF é obrigatório"));
     }
 
     @Test

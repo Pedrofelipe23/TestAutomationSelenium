@@ -4,20 +4,16 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.logging.LogEntries;
-import org.openqa.selenium.logging.LogEntry;
-import org.openqa.selenium.logging.LogType;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 public class TestRecordManagement extends PageObject{
 
     private static BufferedWriter logWriter;
-    private static final String LOG_FILE = "C:\\TestePedro\\TestAutomation\\target\\logs\\test.log";
+    //private static final String LOG_FILE = "C:\\TestePedro\\TestAutomation\\target\\logs\\test.log";
 
     public TestRecordManagement(WebDriver browser) {
         super(browser);
@@ -44,10 +40,11 @@ public class TestRecordManagement extends PageObject{
         }
     }
 
-    public static void openLog() {
+    public static void openLog(String logName) {
         try {
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmss");
-            String logFileName = "interactions_" + dateFormat.format(new Date()) + ".log";
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd_HHmm");
+
+            String logFileName = logName + "_" + dateFormat.format(new Date()) + ".log";
             String logFilePath = "C:\\TestePedro\\TestAutomation\\target\\logs\\" + logFileName;
             logWriter = new BufferedWriter(new FileWriter(logFilePath));
         } catch (IOException e) {
@@ -60,7 +57,7 @@ public class TestRecordManagement extends PageObject{
         try {
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String logMessage = "[" + dateFormat.format(new Date()) + "] " + message;
-            logWriter.write(logMessage);
+            logWriter.append(logMessage);
             logWriter.newLine();
             logWriter.flush();
         } catch (IOException e) {

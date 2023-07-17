@@ -159,6 +159,8 @@ public class LoginPage extends PageObject {
         driver.navigate().to("http://localhost:8080/eva/primeiroEmplacamentoDigital/emplacamentoDigital");
     }
 
-
-
+    public void efetuaLoginEnderecoProprietario() {
+        efetuaLogin();
+        driver.navigate().to("http://localhost:8080/eva/primeiroEmplacamentoDigital/enderecoProprietario");
+    }
 }

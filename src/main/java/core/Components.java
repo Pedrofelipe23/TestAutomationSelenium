@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static core.LogManagement.*;
 import static core.TestRecordManagement.logInteraction;
 import static core.TestRecordManagement.takeScreenshot;
 
@@ -36,10 +37,10 @@ public class Components extends PageObject {
         try {
             driver.findElement(by).clear();
             driver.findElement(by).sendKeys(texto);
-            logInteraction("Texto digitado no campo com sucesso");
+            logInfo("Texto digitado no campo com sucesso");
         }catch (Exception e){
             e.printStackTrace();
-            System.out.println("Erro ao escrever no campo de texto: " + e.getMessage());
+            logError("Erro ao escrever no campo de texto: " + e.getMessage());
         }
 
 
@@ -50,7 +51,13 @@ public class Components extends PageObject {
     }
 
     public static boolean contemTexto(String texto) {
-        System.out.println(texto);
+       try {
+           logSuccess("Contem o texto: "+ texto);
+           System.out.println(texto);
+       }catch (Exception e){
+           e.printStackTrace();
+           logError("Erro: não foi possivel capturar texto" + e.getMessage());
+       }
         return driver.getPageSource().contains(texto);
     }
 
@@ -75,9 +82,16 @@ public class Components extends PageObject {
     /********* Combo ************/
 
     public static void selecionarCombo(String id, String valor) {
-        WebElement element = driver.findElement(By.id(id));
-        Select combo = new Select(element);
-        combo.selectByVisibleText(valor);
+        try {
+            WebElement element = driver.findElement(By.id(id));
+            Select combo = new Select(element);
+            combo.selectByVisibleText(valor);
+            logInfo("Valor selecionado com sucesso");
+        }catch (Exception e){
+            e.printStackTrace();
+            logError("Erro: não foi possivel capturar texto" + e.getMessage());
+        }
+
     }
 
     public void deselecionarCombo(String id, String valor) {
@@ -131,10 +145,10 @@ public class Components extends PageObject {
     public static void clicarBotao(By by) {
         try {
             driver.findElement(by).click();
-            logInteraction("Botão de pesquisa clicado com sucesso");
+            logInfo("Botão de pesquisa clicado com sucesso");
         }catch (Exception e){
             e.printStackTrace();
-            System.out.println("Erro ao clicar no button: " + e.getMessage());
+            logError("Erro ao clicar no button: " + e.getMessage());
         }
     }
 
