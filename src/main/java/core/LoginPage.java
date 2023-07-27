@@ -7,7 +7,8 @@ import org.openqa.selenium.NoSuchElementException;
 
 public class LoginPage extends PageObject {
 
-    private static final String URL_LOGIN = "http://localhost:8080/eva/login/auth";
+    //private static final String URL_LOGIN = "http://localhost:8080/eva/login/auth";
+    private static final String URL_LOGIN = "http://hompa.eva.inf.br/viva/login/auth";
 
     public LoginPage() {
         super(null);
@@ -88,6 +89,11 @@ public class LoginPage extends PageObject {
         driver.navigate().to("http://localhost:8080/eva/devolucaoBlank/pedidosDevolucaoFabricas");
     }
 
+    public void efetuaLoginCriarAtendimentoALNova() {
+        efetuaLogin();
+        driver.navigate().to("http://localhost:8080/eva/atendimentoPublico/criarAtendimentoALNova");
+    }
+
 
 
 //*************** Telas Projeto ViVA ***************
@@ -152,6 +158,11 @@ public class LoginPage extends PageObject {
         driver.navigate().to("http://localhost:8080/eva/vistoria/mudarLocalInstalacao");
     }
 
+    public void efetuaLoginCriarAtendimentoVistoriaWS() {
+        efetuaLogin();
+        driver.navigate().to("http://hompa.eva.inf.br/viva/vistoria/criarAtendimentoVistoriaWS");
+    }
+
 
 //*************** Telas Projeto EvaDigital ***************
     public void efetuaLoginEmplacamentoDigital() {
@@ -163,4 +174,7 @@ public class LoginPage extends PageObject {
         efetuaLogin();
         driver.navigate().to("http://localhost:8080/eva/primeiroEmplacamentoDigital/enderecoProprietario");
     }
+
+
+
 }

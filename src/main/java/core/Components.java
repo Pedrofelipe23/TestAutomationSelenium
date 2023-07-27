@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static core.LogManagement.*;
-import static core.TestRecordManagement.logInteraction;
 import static core.TestRecordManagement.takeScreenshot;
 
 public class Components extends PageObject {
@@ -37,7 +36,7 @@ public class Components extends PageObject {
         try {
             driver.findElement(by).clear();
             driver.findElement(by).sendKeys(texto);
-            logInfo("Texto digitado no campo com sucesso");
+            logInfo("Texto digitado no campo com sucesso: " + by +", value: "+ texto);
         }catch (Exception e){
             e.printStackTrace();
             logError("Erro ao escrever no campo de texto: " + e.getMessage());
@@ -86,7 +85,7 @@ public class Components extends PageObject {
             WebElement element = driver.findElement(By.id(id));
             Select combo = new Select(element);
             combo.selectByVisibleText(valor);
-            logInfo("Valor selecionado com sucesso");
+            logInfo("Valor selecionado com sucesso: " + id +", value: " + valor);
         }catch (Exception e){
             e.printStackTrace();
             logError("Erro: não foi possivel capturar texto" + e.getMessage());
@@ -145,7 +144,7 @@ public class Components extends PageObject {
     public static void clicarBotao(By by) {
         try {
             driver.findElement(by).click();
-            logInfo("Botão de pesquisa clicado com sucesso");
+            logInfo("Botão de pesquisa clicado com sucesso: " + by);
         }catch (Exception e){
             e.printStackTrace();
             logError("Erro ao clicar no button: " + e.getMessage());
