@@ -3,7 +3,7 @@ package vivaTest;
 import core.Components;
 import core.LoginPage;
 import org.junit.Assert;
-import org.junit.Ignore;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -14,7 +14,8 @@ public class CriarAtendimentoVistoriaWSTest {
     @BeforeEach
     public void beforeEach(){
         LoginPage paginaDeLogin = new LoginPage();
-        paginaDeLogin.preencherFormularioDeLogin("matheusmws","1234");
+        //paginaDeLogin.autorizarHttps();
+        paginaDeLogin.preencherFormularioDeLogin("es.poc","1234");
         paginaDeLogin.efetuaLoginCriarAtendimentoVistoriaWS();
     }
 
@@ -24,11 +25,41 @@ public class CriarAtendimentoVistoriaWSTest {
         //Components.fecharDriver();
     }
 
-    @Test
+    @Disabled
     public void verificarUrlHompa(){
 
         Assert.assertTrue(Components.isPage("http://hompa.eva.inf.br/viva/vistoria/criarAtendimentoVistoriaWS"));
     }
+
+    @Test
+    public void consultarIntegracaoSemChassi(){
+        Components.escrever(By.id("numLaudo"),"123456");
+        Components.clicarBotao(By.id("incluir"));
+        Assert.assertTrue(Components.contemTexto("Por favor preencha todos os campos obrigatórios."));
+    }
+
+    @Test
+    public void consultarIntegracaoSemLaudo(){
+        Components.escrever(By.id("chassi"),"123456");
+        Components.clicarBotao(By.id("incluir"));
+        Assert.assertTrue(Components.contemTexto("Por favor preencha todos os campos obrigatórios."));
+    }
+
+    @Test
+    public void consultarIntegracaoComDadosInvalidos(){
+        Components.escrever(By.id("numLaudo"),"123456"); // verificar criação de validação para laudo
+        Components.escrever(By.id("chassi"),"123456"); // // verificar criação de validação para chassi
+        Components.clicarBotao(By.id("incluir"));
+        Assert.assertTrue(Components.contemTexto("Por favor, informe o número do laudo "));
+        Assert.assertTrue(Components.contemTexto(" no app para prosseguir."));
+    }
+
+    @Test
+    public void consultarIntegracaoComCamposVazios(){
+        Components.clicarBotao(By.id("incluir"));
+        Assert.assertTrue(Components.contemTexto("Por favor preencha todos os campos obrigatórios."));
+    }
+
 
     @Test
     public void criandoVistoriaValidaComProcuracao(){
@@ -39,7 +70,7 @@ public class CriarAtendimentoVistoriaWSTest {
 
         //Informações do Veículo
         Assert.assertTrue(Components.contemTexto("Informações do Veículo"));
-        Components.escrever(By.id("placa"),"QCG8E53"); //placa
+        Components.escrever(By.id("placa"),"NHP7045"); //placa
         Components.escrever(By.id("descMarcaModelo"),"TOYOTA/COROLLA APREMIUMH/BRANCA"); //marca/modelo/cor
         Components.escrever(By.id("numeroCRV"),"1234"); //numeroCRV
         Components.escrever(By.id("renavam"),"1319889023"); //renavam
@@ -60,13 +91,13 @@ public class CriarAtendimentoVistoriaWSTest {
 
         //Informações do Proprietário
         Assert.assertTrue(Components.contemTexto("Informações do Proprietário"));
+        Components.escrever(By.id("cpfp2"),"25242556000115"); //cpf/cnpj
         Components.escrever(By.id("cep1"),"22783113"); //CEP
         Components.forceWait();
         Components.escrever(By.id("nomeProp"),"PEDRO TESTE PROPRIETARIO"); //nome proprietario
-        Components.escrever(By.id("cpfp2"),"25242556000115"); //cpf/cnpj
-        Components.forceWait();
         Components.escrever(By.id("email"),"pedrofelipee23@gmail.com"); //e-mail
         Components.escrever(By.id("telefone"),"21999999999"); //telefone
+        Components.forceWait();
 
         //Informações Gerais
         Assert.assertTrue(Components.contemTexto("Informações Gerais"));
@@ -74,10 +105,10 @@ public class CriarAtendimentoVistoriaWSTest {
 
         //Informações da Procuração
         Assert.assertTrue(Components.contemTexto("Informações da Procuração"));
-        //Components.escrever(By.id("cpfterceiro"),"16776548722"); //CPF interessado
-        //Components.escrever(By.id("nomeTerceiro"),"PEDRO TESTE PROCURACAO"); //nome interessado
-        //Components.escrever(By.id("emailProcuracao"),"pedropereira.wj@gmail.com"); //email interessado
-        //Components.forceWait();
+        Components.escrever(By.id("cpfterceiro"),"16776548722"); //CPF interessado
+        Components.escrever(By.id("nomeTerceiro"),"PEDRO TESTE PROCURACAO"); //nome interessado
+        Components.escrever(By.id("emailProcuracao"),"pedropereira.wj@gmail.com"); //email interessado
+        Components.forceWait();
 
         //Incluir
         Components.clicarBotao(By.id("incluir2"));
