@@ -14,15 +14,14 @@ public class CriarAtendimentoVistoriaWSTest {
     @BeforeEach
     public void beforeEach(){
         LoginPage paginaDeLogin = new LoginPage();
-        //paginaDeLogin.autorizarHttps();
         paginaDeLogin.preencherFormularioDeLogin("es.poc","1234");
-        paginaDeLogin.efetuaLoginCriarAtendimentoVistoriaWS();
+        paginaDeLogin.page("http://localhost:8080/eva/vistoria/criarAtendimentoVistoriaWS");
     }
 
     @AfterEach
     public void aftereEach(){
         Components.captureScreenshot("C:\\TestePedro\\TestAutomation\\target\\screenshot\\"+"CriarAtendimentoVistoriaWS");
-        //Components.fecharDriver();
+        Components.fecharDriver();
     }
 
     @Disabled

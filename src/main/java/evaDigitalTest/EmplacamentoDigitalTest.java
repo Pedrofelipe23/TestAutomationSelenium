@@ -15,7 +15,7 @@ public class EmplacamentoDigitalTest {
     public void beforeEach(){
         LoginPage paginaDeLogin = new LoginPage();
         paginaDeLogin.preencherFormularioDeLogin("Pedro.pereira","1234");
-        paginaDeLogin.efetuaLoginEmplacamentoDigital();
+        paginaDeLogin.page("http://localhost:8080/eva/primeiroEmplacamentoDigital/emplacamentoDigital");
     }
 
     @AfterEach

@@ -15,7 +15,7 @@ public class PedidosDevolucaoFabricasTest {
     public void beforeEach()  {
         LoginPage paginaDeLogin = new LoginPage();
         paginaDeLogin.preencherFormularioDeLogin("Feitosa", "1234");
-        paginaDeLogin.efetuarLoginPedidosDevolucaoFabricas();
+        paginaDeLogin.page("http://localhost:8080/eva/devolucaoBlank/pedidosDevolucaoFabricas");
     }
 
     @AfterEach

@@ -15,7 +15,7 @@ public class CriarAtendimentoALNovaTest {
     public void beforeEach(){
         LoginPage paginaDeLogin = new LoginPage();
         paginaDeLogin.preencherFormularioDeLogin("padilha.ernani","654321");
-        paginaDeLogin.efetuaLoginCriarAtendimentoALNova();
+        paginaDeLogin.page("http://localhost:8080/eva/atendimentoPublico/criarAtendimentoALNova");
     }
 
     @AfterEach

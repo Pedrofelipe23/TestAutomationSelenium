@@ -16,7 +16,7 @@ public class EnderecoProprietarioTest {
     public void beforeEach(){
         LoginPage paginaDeLogin = new LoginPage();
         paginaDeLogin.preencherFormularioDeLogin("Pedro.pereira","1234");
-        paginaDeLogin.efetuaLoginEnderecoProprietario();
+        paginaDeLogin.page("http://localhost:8080/eva/primeiroEmplacamentoDigital/enderecoProprietario");
     }
 
     @AfterEach

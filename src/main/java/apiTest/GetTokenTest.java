@@ -1,0 +1,72 @@
+package apiTest;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.ParseException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
+
+import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+
+public class GetTokenTest {
+
+    private static final String API_URL = "http://localhost:8080/eva/api/login";
+    private static final String USERNAME = "wj";
+    private static final String PASSWORD = "Adminwj001";
+
+    @Test
+    public void testLoginApi() throws IOException, ParseException {
+        // Crie o cliente HTTP
+        HttpClient httpClient = HttpClients.createDefault();
+
+        // Crie uma solicitação POST para o ponto de extremidade de login da API
+        HttpPost httpPost = new HttpPost(API_URL);
+
+        // Defina o corpo da solicitação com os dados de login em formato JSON
+        String requestBody = "{\"username\": \"" + USERNAME + "\", \"password\": \"" + PASSWORD + "\"}";
+        StringEntity requestEntity = new StringEntity(requestBody, ContentType.APPLICATION_JSON);
+        httpPost.setEntity(requestEntity);
+
+        // Execute a solicitação e obtenha a resposta
+        HttpResponse response = httpClient.execute((HttpUriRequest) httpPost);
+
+        // Verifique o código de status da resposta (por exemplo, 200 para sucesso)
+        int statusCode = response.getStatusLine().getStatusCode();
+        assertEquals(200, statusCode, "Status code should be 200");
+
+        // Obtenha o corpo da resposta como uma string
+        HttpEntity entity = response.getEntity();
+        String responseBody = EntityUtils.toString(entity);
+
+        // Converta o corpo da resposta em um objeto JSON usando o Jackson
+        ObjectMapper objectMapper = new ObjectMapper();
+        JsonNode jsonNode = objectMapper.readTree(responseBody);
+
+        // Verifique os dados da resposta conforme necessário
+        // Por exemplo, se você estiver esperando um token de acesso JWT na resposta,
+        // você pode verificar sua presença e conteúdo.
+        String token = jsonNode.get("access_token").asText();
+        Assertions.assertNotNull("Access token should not be null", token);
+        System.out.println("Access Token: " + token);
+    }
+}
+
+
+
+
+
+
+
