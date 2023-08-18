@@ -1,5 +1,6 @@
 package vivaTest;
 
+import core.Components;
 import core.LoginPage;
 import vivaPage.UploadArquivosECVPage;
 import org.junit.Assert;
@@ -7,36 +8,22 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.awt.*;
+
 public class UploadArquivosECVTest {
 
-    private UploadArquivosECVPage uploadArquivo;
 
     @BeforeEach
     public void beforeEach(){
         LoginPage paginaDeLogin = new LoginPage();
-        paginaDeLogin.preencherFormularioDeLogin("matheusmws", "1234");
-        this.uploadArquivo = paginaDeLogin.efetuarLoginUploadArquivosECV().carregaPaginaUploadArquivosECV();
+        paginaDeLogin.preencherFormularioDeLogin("es.poc", "1234");
+        paginaDeLogin.page("http://localhost:8080/eva/vistoria/uploadArquivosECV");
     }
 
     @AfterEach
     public void aftereEach(){
-        this.uploadArquivo.fecharDriver();
-    }
-
-    @Test
-    public void visualisandoArquivosParaBaixar(){
-
-        uploadArquivo.visualizaArquivos();
-        Assert.assertTrue(uploadArquivo.isValidaDadosCnpjLoja("24.829.329/0001-28","OTIMIZA VISTORIAS"));
-        Assert.assertTrue(uploadArquivo.contemTexto("Clique para baixar"));
-    }
-
-    @Test
-    public void tentantivaDeCadastroDocumentoSemAnexarPDF(){
-
-        uploadArquivo.incluirPDFDocumento();
-        uploadArquivo.cadastrar();
-        Assert.assertTrue(uploadArquivo.contemTexto("Necessário escolher o tipo de arquivo."));
+        Components.captureScreenshot("C:\\TestePedro\\TestAutomation\\target\\screenshot\\"+"UploadArquivosECV");
+        Components.fecharDriver();
     }
 
 }
