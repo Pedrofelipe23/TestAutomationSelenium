@@ -21,7 +21,7 @@ public class CriarAtendimentoVistoriaWSTest {
     @AfterEach
     public void aftereEach(){
         Components.captureScreenshot("C:\\TestePedro\\TestAutomation\\target\\screenshot\\"+"CriarAtendimentoVistoriaWS");
-        Components.fecharDriver();
+        //Components.fecharDriver();
     }
 
     @Disabled
@@ -62,6 +62,9 @@ public class CriarAtendimentoVistoriaWSTest {
 
     @Test
     public void criandoVistoriaValidaComProcuracao(){
+
+        //Placas para testar
+
         //Consultar Intgração
         Assert.assertTrue(Components.contemTexto("Consultar Integração"));
         Components.escrever(By.id("chassi"),"9BRBY3BE4P4039374"); //chassi
@@ -69,7 +72,7 @@ public class CriarAtendimentoVistoriaWSTest {
 
         //Informações do Veículo
         Assert.assertTrue(Components.contemTexto("Informações do Veículo"));
-        Components.escrever(By.id("placa"),"NHP7045"); //placa
+        Components.escrever(By.id("placa"),"OOA4888"); //placa
         Components.escrever(By.id("descMarcaModelo"),"TOYOTA/COROLLA APREMIUMH/BRANCA"); //marca/modelo/cor
         Components.escrever(By.id("numeroCRV"),"1234"); //numeroCRV
         Components.escrever(By.id("renavam"),"1319889023"); //renavam
@@ -90,12 +93,14 @@ public class CriarAtendimentoVistoriaWSTest {
 
         //Informações do Proprietário
         Assert.assertTrue(Components.contemTexto("Informações do Proprietário"));
-        Components.escrever(By.id("cpfp2"),"25242556000115"); //cpf/cnpj
-        Components.escrever(By.id("cep1"),"22783113"); //CEP
+        Components.escrever(By.id("cpfp2"),"41206870079"); //cpf/cnpj //  25242556000115
+        Components.clicarBotao(By.id("nomeProp"));
+        //Components.escrever(By.id("cep1"),"22783113"); //CEP
         Components.forceWait();
         Components.escrever(By.id("nomeProp"),"PEDRO TESTE PROPRIETARIO"); //nome proprietario
         Components.escrever(By.id("email"),"pedrofelipee23@gmail.com"); //e-mail
-        Components.escrever(By.id("telefone"),"21999999999"); //telefone
+        //Components.escrever(By.id("telefone"),"21999999999"); //telefone
+        Components.escrever(By.id("numero"),"10"); //numero
         Components.forceWait();
 
         //Informações Gerais
@@ -107,6 +112,8 @@ public class CriarAtendimentoVistoriaWSTest {
         Components.escrever(By.id("cpfterceiro"),"16776548722"); //CPF interessado
         Components.escrever(By.id("nomeTerceiro"),"PEDRO TESTE PROCURACAO"); //nome interessado
         Components.escrever(By.id("emailProcuracao"),"pedropereira.wj@gmail.com"); //email interessado
+        //Components.escrever(By.id("cpfPreposto"),"77357201066"); // cpf preposto
+        //Components.escrever(By.id("nomePreposto"),"PEDRO TESTE PREPOSTO");
         Components.forceWait();
 
         //Incluir

@@ -5,8 +5,8 @@ import org.openqa.selenium.NoSuchElementException;
 
 public class LoginPage extends PageObject {
 
-    private static final String URL_LOGIN = "http://localhost:8080/eva/login/auth";
-    //private static final String URL_LOGIN = "https://homolog.vivabr.com.br/viva/login/auth";
+    //private static final String URL_LOGIN = "http://localhost:8080/eva/login/auth";
+    private static final String URL_LOGIN = "https://homolog.vivabr.com.br/solution/login/auth";
 
     public LoginPage() {
         super(null);
@@ -39,7 +39,5 @@ public class LoginPage extends PageObject {
         efetuaLogin();
         driver.navigate().to(url);
     }
-
-
 
 }

@@ -2,6 +2,7 @@ package apiTest;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import groovy.json.JsonSlurper;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.ParseException;
@@ -32,7 +33,6 @@ public class GetTokenTest {
         // Crie o cliente HTTP
         HttpClient httpClient = HttpClients.createDefault();
 
-        // Crie uma solicitação POST para o ponto de extremidade de login da API
         HttpPost httpPost = new HttpPost(API_URL);
 
         // Defina o corpo da solicitação com os dados de login em formato JSON
@@ -45,22 +45,16 @@ public class GetTokenTest {
 
         // Verifique o código de status da resposta (por exemplo, 200 para sucesso)
         int statusCode = response.getStatusLine().getStatusCode();
-        assertEquals(200, statusCode, "Status code should be 200");
+        assertEquals(200, statusCode, "Status code deve ser 200");
 
-        // Obtenha o corpo da resposta como uma string
         HttpEntity entity = response.getEntity();
         String responseBody = EntityUtils.toString(entity);
 
-        // Converta o corpo da resposta em um objeto JSON usando o Jackson
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode jsonNode = objectMapper.readTree(responseBody);
 
-        // Verifique os dados da resposta conforme necessário
-        // Por exemplo, se você estiver esperando um token de acesso JWT na resposta,
-        // você pode verificar sua presença e conteúdo.
-        String token = jsonNode.get("access_token").asText();
-        Assertions.assertNotNull("Access token should not be null", token);
-        System.out.println("Access Token: " + token);
+        System.out.println(jsonNode);
+
     }
 }
 

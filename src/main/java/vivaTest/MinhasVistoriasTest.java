@@ -2,9 +2,9 @@ package vivaTest;
 
 import core.Components;
 import core.LoginPage;
-import vivaPage.VistoriasPage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class MinhasVistoriasTest {
 
@@ -17,9 +17,13 @@ public class MinhasVistoriasTest {
 
     @AfterEach
     public void aftereEach(){
-        Components.captureScreenshot("C:\\TestePedro\\TestAutomation\\target\\screenshot\\"+"Vistoria");
+        Components.captureScreenshot("C:\\TestePedro\\TestAutomation\\target\\screenshot\\"+"MinhasVistoria");
         Components.fecharDriver();
     }
 
+    @Test
+    public void TesteInputDepesquisa(){
+
+    }
 
 }

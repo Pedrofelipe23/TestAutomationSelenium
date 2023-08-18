@@ -255,9 +255,9 @@ public class Components extends PageObject {
 
     /************** Tabela *********************/
 
-    public void clicarBotaoTabela(String colunaBusca, String valor, String colunaBotao, String idTabela){
+    public void clicarBotaoTabela(String idTabela, String colunaBusca, String colunaBotao, String valor){
         //procurar coluna do registro
-        WebElement tabela = driver.findElement(By.xpath("//*[@id='elementosForm:tableUsuarios']"));
+        WebElement tabela = driver.findElement(By.xpath(idTabela));
         int idColuna = obterIndiceColuna(colunaBusca, tabela);
 
         //encontrar a linha do registro
