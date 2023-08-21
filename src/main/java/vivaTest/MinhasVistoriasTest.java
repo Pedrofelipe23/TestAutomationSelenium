@@ -5,6 +5,7 @@ import core.LoginPage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 
 public class MinhasVistoriasTest {
 
@@ -23,6 +24,7 @@ public class MinhasVistoriasTest {
 
     @Test
     public void TesteInputDepesquisa(){
+        Components.escrever(By.xpath("//*[@id=\"table_filter\"]/label/input"),"GDG5J22");
 
     }
 

@@ -240,10 +240,10 @@ public class Components extends PageObject {
         }
     }
 
-    public void waitRequest(By by, String text){
+    /*public void waitRequest(By by, String text){
         WebDriverWait wait = new WebDriverWait(driver,30);
         wait.until(ExpectedConditions.textToBe(by,text));
-    }
+    }*/
 
     /************** JS *********************/
 

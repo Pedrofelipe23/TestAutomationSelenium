@@ -28,12 +28,13 @@ public class AtualizarEnderecoEntregaTest {
     @Test
     public void pesquisandoAtendimento(){
         Components.escrever(By.xpath("//*[@id=\"table_filter\"]/label/input"),"PXZ9H35");
+        Components.forceWait();
 
-        Assert.assertTrue(Components.contemTexto("Atualizar coordenadas"));
+        Assert.assertTrue(Components.contemTexto("PXZ9H35"));
     }
 
     @Test
-    public void alterarLocalizacaoInvalidaParaGeoLocalizacao(){
+    public void alterarLocalizacaoComCepValido(){
         Components.clicarBotao(By.xpath("//*[@id=\"table\"]/tbody/tr[1]/td[6]/span"));
         Components.escrever(By.id("location"),"22783113");
 
@@ -42,29 +43,23 @@ public class AtualizarEnderecoEntregaTest {
         Components.clicarBotao(By.xpath("//*[@id=\"modalMap\"]/div/div/div[2]/button"));
         Components.forceWait();
 
-        Assert.assertTrue(Components.contemTexto("Editar local de entrega"));
+        Assert.assertTrue(Components.contemTexto("Editar Local de Entrega"));
         Assert.assertTrue(Components.contemTexto("-22.985011"));
         Assert.assertTrue(Components.contemTexto("-43.4277561"));
-        Assert.assertTrue(Components.contemTexto("O endereço informado não faz parte da região autorizada para seus atendimentos."));
+        Assert.assertTrue(Components.contemTexto("Localização atualizada com sucesso!"));
     }
 
     @Test
-    public void alterarLocalizacaoComCepValido(){
+    public void tentativaDeAlterarLocalizacaoSemInserirCEP(){
+        Components.escrever(By.xpath("//*[@id=\"table_filter\"]/label/input"),"PXZ9H35");
         Components.clicarBotao(By.xpath("//*[@id=\"table\"]/tbody/tr[1]/td[6]/span"));
-        Components.escrever(By.id("location"),"29015040");
-        Components.clicarBotao(By.xpath("//*[@id=\"formHidden\"]/div[1]/input[2]"));
         Components.forceWait();
         Components.clicarBotao(By.xpath("//*[@id=\"modalMap\"]/div/div/div[2]/button"));
         Components.forceWait();
 
-        Assert.assertTrue(Components.contemTexto("Editar local de entrega"));
-        Assert.assertTrue(Components.contemTexto("-20.3200842"));
-        Assert.assertTrue(Components.contemTexto("-40.3421163"));
-        Assert.assertTrue(Components.contemTexto("Localização atualizada com sucesso!"));
+        Assert.assertTrue(Components.contemTexto("Editar Local de Entrega"));
+        Assert.assertTrue(Components.contemTexto("Necessário inserir uma localização."));
     }
-
-
-
 
 
 
