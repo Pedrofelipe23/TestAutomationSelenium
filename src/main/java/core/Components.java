@@ -22,6 +22,7 @@ public class Components extends PageObject {
     /********* Screenshot ************/
     public static void captureScreenshot(String fileName) {
         takeScreenshot(fileName);
+        logSuccess("Captura de tela bem-sucedida: " + fileName);
     }
 
     /********* TextField e TextArea ************/
