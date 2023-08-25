@@ -85,11 +85,12 @@ public class Components extends PageObject {
         try {
             WebElement element = driver.findElement(By.id(id));
             Select combo = new Select(element);
-            combo.selectByVisibleText(valor);
+            //combo.selectByVisibleText(valor); Texto
+            combo.selectByValue(valor); // value
             logInfo("Valor selecionado com sucesso: " + id +", value: " + valor);
         }catch (Exception e){
             e.printStackTrace();
-            logError("Erro: não foi possivel capturar texto" + e.getMessage());
+            logError("Erro: não foi possivel capturar texto " + e.getMessage());
         }
 
     }

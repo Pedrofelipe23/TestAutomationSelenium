@@ -7,6 +7,7 @@ import org.junit.Ignore;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 
 public class RelatoriosTest {
 
@@ -20,7 +21,7 @@ public class RelatoriosTest {
     @AfterEach
     public void aftereEach(){
         Components.captureScreenshot("C:\\TestePedro\\TestAutomation\\target\\screenshot\\"+"Relatorios");
-        //Components.fecharDriver();
+        Components.fecharDriver();
     }
 
     @Test
@@ -36,11 +37,11 @@ public class RelatoriosTest {
 
     @Test
     public void gerarRelatorioAtendimentos(){
-        Components.selecionarCombo("ljs","ES POC VISTORIAS LTDA");
+        //Components.obterValorCombo("ljs");
+        Components.clicarBotao(By.id("ljs"));
+        Components.selecionarCombo("ljs","67c7d9p4-2a7d-4dd1-b525-56axdf2k1vb5");
         Components.forceWait();
-        Components.selecionarCombo("selector1","02 - Atendimentos");
-
-
+        //Components.selecionarCombo("selector1","02 - Atendimentos");
 
     }
 
