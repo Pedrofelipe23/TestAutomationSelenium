@@ -7,8 +7,7 @@ import static core.LogManagement.*;
 public class LoginPage extends PageObject {
 
     //private static final String URL_LOGIN = "http://localhost:8080/eva/login/auth";
-    //private static final String URL_LOGIN = "https://homolog.vivabr.com.br/solution/login/auth";
-    private static final String URL_LOGIN = "https://homolog.vivabr.com.br/otimiza/login/auth";
+    private static final String URL_LOGIN = "http://hompa.eva.inf.br/solution/suporte/gerenciarEstornos";
 
     public LoginPage() {
         super(null);
