@@ -36,5 +36,4 @@ public class TestRecordManagement extends PageObject{
             System.out.println("Falha ao tirar screenshot: " + e.getMessage());
         }
     }
-
 }

@@ -1,11 +1,9 @@
 package core;
 
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.io.IOException;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +16,25 @@ public class Components extends PageObject {
         super(driver);
     }
 
+    /********* Target ************/
+
+    public static void deleteFileSpecifiedTarget(String caminho) {
+        String caminhoArquivoParaExcluir = "C:\\TestePedro\\TestAutomation\\target\\";
+
+        File arquivoParaExcluir = new File(caminhoArquivoParaExcluir + caminho);
+
+        System.out.println(arquivoParaExcluir);
+        // Verifique se o arquivo existe antes de excluí-lo
+        if (arquivoParaExcluir.exists() && arquivoParaExcluir.isFile()) {
+            if (arquivoParaExcluir.delete()) {
+                System.out.println("Arquivo excluído com sucesso.");
+            } else {
+                System.out.println("Não foi possível excluir o arquivo.");
+            }
+        } else {
+            System.out.println("Arquivo não encontrado.");
+        }
+    }
 
     /********* Screenshot ************/
     public static void captureScreenshot(String fileName) {

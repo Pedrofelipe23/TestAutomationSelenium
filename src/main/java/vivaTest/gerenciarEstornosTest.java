@@ -21,6 +21,7 @@ public class gerenciarEstornosTest {
     public void aftereEach(){
         Components.captureScreenshot("C:\\TestePedro\\TestAutomation\\target\\screenshot\\"+"gerenciarEstornos");
         Components.fecharDriver();
+        Components.deleteFileSpecifiedTarget("screenshot\\"+"gerenciarEstornos_20231009_134755.jpg");
     }
 
     @Test
