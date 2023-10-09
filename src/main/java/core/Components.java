@@ -166,6 +166,15 @@ public class Components extends PageObject {
         }
     }
 
+    /********** tipoDATA **************/
+
+    public void selectDate(String id, String xpath){
+        WebElement inputDate = driver.findElement(By.id(id));
+        inputDate.click();
+        WebElement dateToSelect = driver.findElement(By.xpath(xpath));
+        dateToSelect.click();
+    }
+
     /********* anexarFile ************/
 
     public static void anexaFile(String id, String caminhoDoArquivo) {

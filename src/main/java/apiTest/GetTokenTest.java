@@ -24,9 +24,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GetTokenTest {
 
-    private static final String API_URL = "http://localhost:8080/eva/api/login";
-    private static final String USERNAME = "wj";
-    private static final String PASSWORD = "Adminwj001";
+    private static final String API_URL = "https://esoxxy.solutionsa.com.br/oxxy/api/login";
+    private static final String USERNAME = "oxxy";
+    private static final String PASSWORD = "mEtGTxAx25";
 
     @Test
     public void testLoginApi() throws IOException, ParseException {
@@ -56,6 +56,8 @@ public class GetTokenTest {
         System.out.println(jsonNode);
 
     }
+
+
 }
 
 
