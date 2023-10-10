@@ -23,8 +23,6 @@ public class Components extends PageObject {
 
         File arquivoParaExcluir = new File(caminhoArquivoParaExcluir + caminho);
 
-        System.out.println(arquivoParaExcluir);
-        // Verifique se o arquivo existe antes de excluí-lo
         if (arquivoParaExcluir.exists() && arquivoParaExcluir.isFile()) {
             if (arquivoParaExcluir.delete()) {
                 System.out.println("Arquivo excluído com sucesso.");
