@@ -87,7 +87,6 @@ public class GerenciarUsuarioSuporteTest {
         clicarBotao(By.xpath("/html/body/div[4]/div/div[10]/button[1]"));
 
         Assert.assertTrue(contemTexto("Usuário editado com sucesso"));
-
     }
 
     @Test
@@ -95,6 +94,7 @@ public class GerenciarUsuarioSuporteTest {
         escrever(By.xpath("//*[@id=\"table_filter\"]/label/input"),"pedrofelipe");
         forceWait();
         clicarBotao(By.id("1a556969-9c08-4ddf-95b0-bfc1787ebfa5"));
+
         if (!Objects.equals(obterValorCampo("swal2-content"), "Deseja desabilitar este usuário?")){
             forceWait();
             clicarBotao(By.xpath("/html/body/div[3]/div/div[10]/button[1]"));
