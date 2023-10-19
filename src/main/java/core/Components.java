@@ -30,7 +30,7 @@ public class Components extends PageObject {
         }
     }
 
-    public String obterValorCampo(String id_campo) {
+    public static String obterValorCampo(String id_campo) {
         return driver.findElement(By.id(id_campo)).getAttribute("value");
     }
 
