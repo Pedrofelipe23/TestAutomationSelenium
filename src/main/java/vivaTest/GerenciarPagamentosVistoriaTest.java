@@ -10,21 +10,20 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
+import static core.TestRecordManagement.captureScreenshot;
+
 public class GerenciarPagamentosVistoriaTest {
 
     @BeforeEach
     public void beforeEach(){
-        LoginPage paginaDeLogin = new LoginPage();
+        LoginPage paginaDeLogin = new LoginPage("http://localhost:8080/eva/vistoria/gerenciarPagamentosVistoria");
         //paginaDeLogin.autorizarHttps();
         paginaDeLogin.preencherFormularioDeLogin("pedro.pereira","1234");
-        //paginaDeLogin.page("http://localhost:8080/eva/vistoria/gerenciarPagamentosVistoria");
-        paginaDeLogin.page("https://homolog.vivabr.com.br/solution/vistoria/gerenciarPagamentosVistoria");
-
     }
 
     @AfterEach
     public void aftereEach(){
-        Components.captureScreenshot("C:\\TestePedro\\TestAutomation\\target\\screenshot\\"+"GerenciarPagamentosVistoria");
+        captureScreenshot("C:\\TestePedro\\TestAutomation\\target\\screenshot\\"+"GerenciarPagamentosVistoria");
         Components.fecharDriver();
     }
 

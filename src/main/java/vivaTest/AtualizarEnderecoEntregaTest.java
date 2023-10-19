@@ -8,20 +8,20 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
+import static core.TestRecordManagement.captureScreenshot;
+
 public class AtualizarEnderecoEntregaTest {
 
     @BeforeEach
     public void beforeEach(){
-        LoginPage paginaDeLogin = new LoginPage();
+        LoginPage paginaDeLogin = new LoginPage("https://homolog.vivabr.com.br/solution/agendamento/atualizarLocalizacaoEntrega");
         //paginaDeLogin.autorizarHttps();
         paginaDeLogin.preencherFormularioDeLogin("es.poc","1234");
-        paginaDeLogin.page("https://homolog.vivabr.com.br/solution/agendamento/atualizarLocalizacaoEntrega");
-
     }
 
     @AfterEach
     public void aftereEach(){
-        Components.captureScreenshot("C:\\TestePedro\\TestAutomation\\target\\screenshot\\"+"AtualizarEnderecoEntrega");
+        captureScreenshot("C:\\TestePedro\\TestAutomation\\target\\screenshot\\"+"AtualizarEnderecoEntrega");
         Components.fecharDriver();
     }
 

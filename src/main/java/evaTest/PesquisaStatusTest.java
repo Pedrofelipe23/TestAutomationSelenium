@@ -10,9 +10,8 @@ public class PesquisaStatusTest {
 
     @BeforeEach
     public void beforeEach(){
-        LoginPage paginaDeLogin = new LoginPage();
+        LoginPage paginaDeLogin = new LoginPage("http://localhost:8080/eva/administrativo/pesquisaStatus");
         paginaDeLogin.preencherFormularioDeLogin("mundo.placas","Aa02468");
-        paginaDeLogin.page("http://localhost:8080/eva/administrativo/pesquisaStatus");
     }
 
     @AfterEach

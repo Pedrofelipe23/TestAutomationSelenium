@@ -9,20 +9,20 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.By;
 
+import static core.TestRecordManagement.captureScreenshot;
+
 public class PerfilTest {
 
     @BeforeEach
     public void beforeEach(){
-        LoginPage paginaDeLogin = new LoginPage();
+        LoginPage paginaDeLogin = new LoginPage("https://homolog.vivabr.com.br/otimiza/vistoria/perfil");
         //paginaDeLogin.autorizarHttps();
         paginaDeLogin.preencherFormularioDeLogin("detran.es","1234");
-        paginaDeLogin.page("https://homolog.vivabr.com.br/otimiza/vistoria/perfil");
-
     }
 
     @AfterEach
     public void aftereEach(){
-        Components.captureScreenshot("C:\\TestePedro\\TestAutomation\\target\\screenshot\\"+"Perfil");
+        captureScreenshot("C:\\TestePedro\\TestAutomation\\target\\screenshot\\"+"Perfil");
         //Components.fecharDriver();
     }
 

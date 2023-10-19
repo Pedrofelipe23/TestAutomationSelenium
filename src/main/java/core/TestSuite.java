@@ -16,7 +16,7 @@ public class TestSuite {
 
     @BeforeClass
     public static void beforeClass(){
-        LoginPage paginaDeLogin = new LoginPage();
+        LoginPage paginaDeLogin = new LoginPage("");
         paginaDeLogin.preencherFormularioDeLogin("es.poc","1234");
     }
     @AfterClass

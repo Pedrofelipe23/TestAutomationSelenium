@@ -12,7 +12,7 @@ public class NfeAgerarEvaTest {
 
     @BeforeEach
     public void beforeEach(){
-        LoginPage paginaDeLogin = new LoginPage();
+        LoginPage paginaDeLogin = new LoginPage("");
         paginaDeLogin.preencherFormularioDeLogin("padilha.ernani","654321");
 
     }

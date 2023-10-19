@@ -9,18 +9,19 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
+import static core.TestRecordManagement.captureScreenshot;
+
 public class CriarAtendimentoALNovaTest {
 
     @BeforeEach
     public void beforeEach(){
-        LoginPage paginaDeLogin = new LoginPage();
+        LoginPage paginaDeLogin = new LoginPage("http://localhost:8080/eva/atendimentoPublico/criarAtendimentoALNova");
         paginaDeLogin.preencherFormularioDeLogin("padilha.ernani","654321");
-        paginaDeLogin.page("http://localhost:8080/eva/atendimentoPublico/criarAtendimentoALNova");
     }
 
     @AfterEach
     public void aftereEach(){
-        Components.captureScreenshot("C:\\TestePedro\\TestAutomation\\target\\screenshot\\"+"CriarAtendimentoALNova");
+        captureScreenshot("C:\\TestePedro\\TestAutomation\\target\\screenshot\\"+"CriarAtendimentoALNova");
         Components.fecharDriver();
     }
 

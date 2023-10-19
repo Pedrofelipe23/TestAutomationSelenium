@@ -6,13 +6,10 @@ import static core.LogManagement.*;
 
 public class LoginPage extends PageObject {
 
-    //private static final String URL_LOGIN = "http://localhost:8080/eva/login/auth";
-    private static final String URL_LOGIN = "http://hompa.eva.inf.br/solution/suporte/gerenciarEstornos";
-
-    public LoginPage() {
+    public LoginPage(String url) {
         super(null);
-        this.driver.navigate().to(URL_LOGIN);
-        logWarning("Atenção ambiente de teste webDriver iniciado com a URL: " + URL_LOGIN);
+        driver.navigate().to(url);
+        logWarning("Atenção ambiente de teste webDriver iniciado com a URL: " + url);
 
     }
 

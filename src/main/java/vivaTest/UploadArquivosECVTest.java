@@ -8,19 +8,20 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
+import static core.TestRecordManagement.captureScreenshot;
+
 public class UploadArquivosECVTest {
 
 
     @BeforeEach
     public void beforeEach(){
-        LoginPage paginaDeLogin = new LoginPage();
+        LoginPage paginaDeLogin = new LoginPage("https://homolog.vivabr.com.br/solution/vistoria/uploadArquivosECV");
         paginaDeLogin.preencherFormularioDeLogin("es.poc", "1234");
-        paginaDeLogin.page("https://homolog.vivabr.com.br/solution/vistoria/uploadArquivosECV");
     }
 
     @AfterEach
     public void aftereEach(){
-        Components.captureScreenshot("C:\\TestePedro\\TestAutomation\\target\\screenshot\\"+"UploadArquivosECV");
+        captureScreenshot("C:\\TestePedro\\TestAutomation\\target\\screenshot\\"+"UploadArquivosECV");
         Components.fecharDriver();
     }
 

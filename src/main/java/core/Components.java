@@ -2,45 +2,16 @@ package core;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
-
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 import static core.LogManagement.*;
-import static core.TestRecordManagement.takeScreenshot;
 
 public class Components extends PageObject {
 
     public Components(WebDriver driver) {
         super(driver);
     }
-
-    /********* Target ************/
-
-    public static void deleteFileSpecifiedTarget(String caminho) {
-        String caminhoArquivoParaExcluir = "C:\\TestePedro\\TestAutomation\\target\\";
-
-        File arquivoParaExcluir = new File(caminhoArquivoParaExcluir + caminho);
-
-        if (arquivoParaExcluir.exists() && arquivoParaExcluir.isFile()) {
-            if (arquivoParaExcluir.delete()) {
-                System.out.println("Arquivo excluído com sucesso.");
-            } else {
-                System.out.println("Não foi possível excluir o arquivo.");
-            }
-        } else {
-            System.out.println("Arquivo não encontrado.");
-        }
-    }
-
-    /********* Screenshot ************/
-    public static void captureScreenshot(String fileName) {
-        takeScreenshot(fileName);
-        logSuccess("Captura de tela bem-sucedida: " + fileName);
-    }
-
-    /********* TextField e TextArea ************/
 
     public static boolean isPage(String URL) {
         return driver.getCurrentUrl().equals(URL);
@@ -57,8 +28,6 @@ public class Components extends PageObject {
             e.printStackTrace();
             logError("Erro ao escrever no campo de texto: " + e.getMessage());
         }
-
-
     }
 
     public String obterValorCampo(String id_campo) {
