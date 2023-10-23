@@ -69,7 +69,7 @@ public class Components extends PageObject {
         try {
             WebElement element = driver.findElement(By.id(id));
             Select combo = new Select(element);
-            //combo.selectByVisibleText(valor); Texto
+            //combo.selectByVisibleText(valor);
             combo.selectByValue(valor); // value
             logInfo("Valor selecionado com sucesso: " + id +", value: " + valor);
         }catch (Exception e){
