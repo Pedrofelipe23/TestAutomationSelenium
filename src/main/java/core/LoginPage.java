@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import static core.LogManagement.*;
 
-public class LoginPage extends PageObject {
+public class LoginPage extends Driver {
 
     public LoginPage(String url) {
         super(null);

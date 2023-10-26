@@ -1,6 +1,5 @@
 package suporteTest;
 
-import core.Components;
 import core.LoginPage;
 import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
@@ -9,9 +8,8 @@ import org.junit.jupiter.api.Test;
 
 import static core.Components.contemTexto;
 import static core.Components.isPage;
-import static core.PageObject.fecharDriver;
+import static core.Driver.fecharDriver;
 import static core.TestRecordManagement.captureScreenshot;
-import static core.TestRecordManagement.deleteFileSpecifiedTarget;
 
 public class ConsultarEstornosTest {
 

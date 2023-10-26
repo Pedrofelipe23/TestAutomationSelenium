@@ -11,7 +11,7 @@ import java.io.File;
 import java.io.IOException;
 
 import static core.DriverFactory.getDriver;
-import static core.PageObject.fecharDriver;
+import static core.Driver.fecharDriver;
 
 public class BaseTest {
 

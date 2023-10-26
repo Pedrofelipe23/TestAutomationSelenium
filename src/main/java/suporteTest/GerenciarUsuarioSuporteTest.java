@@ -10,7 +10,7 @@ import org.openqa.selenium.By;
 import java.util.Objects;
 
 import static core.Components.*;
-import static core.PageObject.fecharDriver;
+import static core.Driver.fecharDriver;
 import static core.TestRecordManagement.captureScreenshot;
 
 public class GerenciarUsuarioSuporteTest {

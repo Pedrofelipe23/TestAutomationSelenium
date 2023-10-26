@@ -12,7 +12,7 @@ import java.util.Date;
 import static core.LogManagement.logSuccess;
 
 
-public class TestRecordManagement extends PageObject{
+public class TestRecordManagement extends Driver {
 
     public TestRecordManagement(WebDriver browser) {
         super(browser);

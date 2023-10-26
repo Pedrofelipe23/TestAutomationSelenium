@@ -8,7 +8,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 
-import static core.PageObject.fecharDriver;
+import static core.Driver.fecharDriver;
 import static core.TestRecordManagement.captureScreenshot;
 import static core.TestRecordManagement.deleteFileSpecifiedTarget;
 

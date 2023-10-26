@@ -8,7 +8,7 @@ import java.io.PrintWriter;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class LogManagement extends PageObject{
+public class LogManagement extends Driver {
     private static final Object lockObject = new Object();
 
     public LogManagement(WebDriver browser) {

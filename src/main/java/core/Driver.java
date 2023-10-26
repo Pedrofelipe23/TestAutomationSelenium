@@ -7,11 +7,11 @@ import java.awt.*;
 import java.util.concurrent.TimeUnit;
 
 
-public class PageObject {
+public class Driver {
 
     protected static WebDriver driver;
 
-    public PageObject( WebDriver browser) {
+    public Driver(WebDriver browser) {
         System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
 
         if (browser == null) {

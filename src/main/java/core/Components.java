@@ -7,7 +7,7 @@ import java.util.List;
 
 import static core.LogManagement.*;
 
-public class Components extends PageObject {
+public class Components extends Driver {
 
     public Components(WebDriver driver) {
         super(driver);
